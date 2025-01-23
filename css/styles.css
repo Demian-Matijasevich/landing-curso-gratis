@@ -44,6 +44,59 @@ body {
   margin: 0; /* Elimina márgenes extra */
 }
 
+/* Contenedor principal */
+.arrowed-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Estilo de las flechas */
+.arrow-left, .arrow-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2s infinite; /* Agregamos animación */
+}
+
+.arrow-icon {
+  width: 25px; /* Ajusta el tamaño de las flechas */
+  height: 25px;
+  stroke: #ffd700; /* Color dorado */
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Estilo del texto */
+.arrowed-text {
+  font-size: 20px !important; /* Asegúrate de que sobrescriba otras reglas */
+  font-weight: bold;
+  color: #fff;
+  margin: 0 15px; /* Espaciado entre texto y flechas */
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Efecto dorado */
+.gold-effect {
+  background: linear-gradient(90deg, #Efb810, #fceabb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px); /* Ajusta la altura del rebote */
+  }
+}
 
 .form-container p {
   font-size: 15px;
@@ -59,8 +112,19 @@ body {
   -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el degradado */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Opcional: un leve shadow para resaltar el efecto */
 }
+.gratis{
+  font-size: 25px;
+  font-weight: bold;
+}
 
 
+.gratis span{
+  font-weight: bold;
+  background: linear-gradient(90deg, #Efb810, #fceabb); /* Degradado metálico */
+  -webkit-background-clip: text; /* Clipa el fondo al texto */
+  -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el degradado */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Opcional: un leve shadow para resaltar el efecto */
+}
   
  
 .button {
@@ -231,28 +295,13 @@ body {
 
 
 
-@media screen and (max-width: 479px) {
- 
-  .button {
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
-    font-size: 1rem;
-  }
 
-  .button_view-more {
-    font-size: 1rem;
-  }
-
-  .svg_long-arrow {
-    width: .8rem;
-  }
-
-}
 
 
 @media (max-width: 768px) {
   body {
-      justify-content: center;
+    background-image: url('../img/Capa\ 1.png');
+    min-height: 100vh;
   }
 
   .form-container {
@@ -285,42 +334,68 @@ body {
 }
 /* Versión móvil */
 @media (max-width: 768px) {
-  /* Asegura que la imagen esté abajo del todo */
-body {
-  display: flex;
-  flex-direction: column; /* Ordena el contenido en columna */
-  justify-content: space-between; /* Distribuye espacio entre los elementos */
-  min-height: 100vh; /* Asegura que el body ocupe toda la altura */
-  margin: 0; /* Elimina márgenes */
-}
 
-/* Estilos generales */
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-image: url('../img/Capa\ 1.png'); /* Fondo por defecto */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.logo {
-  display: none; /* Oculta el logo en móviles */
-  
-}
-    .bottom-image {
-        display: block; /* Muestra la imagen solo en móviles */
-    }
-
-    .form-container {
-        margin-bottom: 20px; /* Agrega espacio entre el box y la imagen */
-    }
-    .logo-bottom {
-      display: block; /* Mostrar logo solo en móviles */
-      max-width: 100px;
-      
+  html, body {
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina rellenos */
+    height: 100%; /* Asegura que el html y el body ocupen toda la altura */
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
   }
+  body {
+    display: flex;
+    flex-direction: column; /* Ordena los elementos en columna */
+    justify-content: space-between; /* Espacia el contenido */
+    background-image: url('../img/Capa\ 1.png'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita repeticiones */
+    min-height: 100vh; /* Asegura la altura mínima */
+    height: 100vh;
+    max-height: 100vh; /* Limita la altura máxima */
+    box-sizing: border-box; /* Incluye bordes y padding en el cálculo del tamaño */
+  }
+  .form-container {
+    flex: 1; /* Permite que este contenedor se expanda */
+    margin: 0 0; /* Centra horizontalmente */
+    padding: 20px; /* Espaciado interno */
+    max-width: 90%; /* Ajusta el ancho máximo */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    padding-bottom: 0;
+  }
+  .bottom-image {
+    display: block; /* Muestra la imagen */
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: auto; /* Ajusta la altura automáticamente */
+    object-fit: cover; /* Mantiene proporciones */
+    margin-top: auto; /* Empuja la imagen al final de la pantalla */
+    margin: 0;
+  }
+
+  .logo {
+    display: none; /* Oculta el logo de la versión de escritorio */
+  }
+
+  .logo-bottom {
+    display: block; /* Muestra el logo en móviles */
+    max-width: 100px;
+    margin: 0 auto; /* Centra el logo */
+  }
+}
+
+@media screen and (max-width: 479px) {
+ 
+  .button {
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .button_view-more {
+    font-size: 1rem;
+  }
+
+  .svg_long-arrow {
+    width: .8rem;
+  }
+
 }
