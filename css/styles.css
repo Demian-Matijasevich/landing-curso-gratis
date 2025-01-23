@@ -349,8 +349,8 @@ body {
     background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita repeticiones */
-    min-height: 100vh; /* Asegura la altura mínima */
-    height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    height: calc(var(--vh, 1vh) * 100); /* Altura dinámica basada en la variable */
     max-height: 100vh; /* Limita la altura máxima */
     box-sizing: border-box; /* Incluye bordes y padding en el cálculo del tamaño */
   }
